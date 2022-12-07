@@ -1,0 +1,1228 @@
+//Ffxi Oboro
+ffxi oboro
+_addon.name = ‘itemdyr’
+_addon.author = ‘Elidyr’
+_addon.version = ‘1.09182019’
+_addon.command = ‘item’
+
+res = require(‘resources’)
+packets = require(‘packets’)
+require (‘logger’)
+
+windower.register_event(‘addon command’, function(…)
+
+ffxi oboro ffxi oboro
+local player = windower.ffxi.get_player()
+local command = (…) and (…):lower()
+local build = {select(2, …)}
+local commands = “”
+local match = {}
+local amount = 0
+local count = 0
+
+— Build command strings and tables.
+if build then
+ffxi oboro check more ffxi oboro
+
+for i,v in pairs(build) do
+commands = commands .. ” ” .. v
+end
+
+commands = commands:sub(2)
+
+for w in string.gmatch(commands, “[%a’]+”) do
+table.insert(match, w)
+end
+ffxi oboro informational ffxi oboro
+
+end
+
+if command == ‘trade’ then
+
+if match then
+
+local duplicate = {}
+local item
+
+ffxi oboro informational ffxi oboro
+if match[1] ~= “max” then
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+duplicate = {item.id,item.id,item.id,item.id,item.id,item.id,item.id,item.id}
+count = select(2, bpFindItem(duplicate[1]))
+amount = count * #duplicate
+else
+ffxi oboro ffxi oboro
+windower.add_to_chat(5, ‘Unable to find items!’)
+end
+
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+duplicate = {item.id,item.id,item.id,item.id,item.id,item.id,item.id,item.id,item.id}
+count = select(2, bpFindItem(duplicate[1]))
+ffxi oboro informational ffxi oboro
+amount = count * #duplicate
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+end
+
+end
+
+if item and item.id and windower.ffxi.get_mob_by_target(‘t’) then
+local target = windower.ffxi.get_mob_by_target(‘t’)
+
+ffxi oboro best of ffxi oboro
+if bpFindItem(duplicate[1]) then
+local id = select(3, bpFindItem(duplicate[1]))
+
+if bpFindNPC({target.id}) then
+
+if math.sqrt(target.distance) 6 then
+ffxi oboro check more ffxi oboro
+windower.add_to_chat(5, ‘Player is to far away!’)
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find a target!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Verify items and target!’)
+ffxi oboro informational ffxi oboro
+
+end
+
+end
+
+end
+
+elseif command == ‘relic’ then
+windower.add_to_chat(5, ‘No max trade allowed!’)
+
+ffxi oboro check more ffxi oboro
+if match then
+
+local duplicate = {}
+local item
+local amount
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+ffxi oboro informational ffxi oboro
+duplicate = {item.id,item.id,item.id,item.id,item.id}
+count = select(2, bpFindItem(duplicate[1]))
+amount = count * #duplicate
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+end
+
+if item and item.id and windower.ffxi.get_mob_by_target(‘t’) then
+local target = windower.ffxi.get_mob_by_target(‘t’)
+
+ffxi oboro best of ffxi oboro
+if bpFindItem(duplicate[1]) then
+local id = select(3, bpFindItem(duplicate[1]))
+
+if bpFindNPC({target.id}) then
+
+if math.sqrt(target.distance) 6 then
+ffxi oboro ffxi oboro
+windower.add_to_chat(5, ‘Player is to far away!’)
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find target!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Verify items and target!’)
+ffxi oboro best of ffxi oboro
+
+end
+
+end
+
+end
+
+elseif command == ‘astral’ then
+
+if match then
+ffxi oboro check more ffxi oboro
+
+local oboro = {17784988}
+local stones = {}
+local item
+
+if match[1] ~= “max” then
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+ffxi oboro informational ffxi oboro
+if item then
+stones = {9875,9875,9875,9875,9875,9875,9875,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+ffxi oboro check more ffxi oboro
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+stones = {9875,9875,9875,9875,9875,9875,9875,9875,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+ffxi oboro ffxi oboro
+end
+
+if bpFindItem(stones[1]) then
+local id = select(3, bpFindItem(stones[1]))
+
+if bpFindNPC(oboro) then
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Oboro is to far away!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find Oboro!’)
+
+ffxi oboro informational ffxi oboro
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+
+end
+
+end
+
+elseif command == ‘astralhq’ then
+ffxi oboro ffxi oboro
+
+if match then
+
+local oboro = {17784988}
+local stones = {}
+local item
+
+if match[1] ~= “max” then
+
+name = commands
+ffxi oboro informational ffxi oboro
+item = bpCheckInventoryForItem(name)
+
+if item then
+stones = {9876,9876,9876,9876,9876,9876,9876,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+ffxi oboro best of ffxi oboro
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+stones = {9876,9876,9876,9876,9876,9876,9876,9876,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+ffxi oboro check more ffxi oboro
+end
+
+end
+
+if bpFindItem(stones[1]) then
+local id = select(3, bpFindItem(stones[1]))
+
+if bpFindNPC(oboro) then
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+ffxi oboro check more ffxi oboro
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Oboro is to far away!’)
+
+end
+
+else
+ffxi oboro informational ffxi oboro
+windower.add_to_chat(5, ‘Unable to find Oboro!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+
+end
+
+end
+ffxi oboro ffxi oboro
+
+elseif command == ‘heroism’ then
+
+if match then
+
+local oboro = {17784988}
+local stones = {}
+local item
+
+if match[1] ~= “max” then
+ffxi oboro best of ffxi oboro
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+stones = {9877,9877,9877,9877,9877,9877,9877,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+ffxi oboro best of ffxi oboro
+end
+
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+stones = {9877,9877,9877,9877,9877,9877,9877,9877,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+ffxi oboro ffxi oboro
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+
+if bpFindItem(stones[1]) then
+local id = select(3, bpFindItem(stones[1]))
+
+if bpFindNPC(oboro) then
+ffxi oboro check more ffxi oboro
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Oboro is to far away!’)
+
+end
+ffxi oboro informational ffxi oboro
+
+else
+windower.add_to_chat(5, ‘Unable to find Oboro!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+
+end
+ffxi oboro best of ffxi oboro
+
+end
+
+elseif command == ‘herohq’ then
+
+if match then
+
+local oboro = {17784988}
+local stones = {}
+local item
+ffxi oboro informational ffxi oboro
+
+if match[1] ~= “max” then
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+stones = {9878,9878,9878,9878,9878,9878,9878,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+ffxi oboro check more ffxi oboro
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+end
+
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+stones = {9878,9878,9878,9878,9878,9878,9878,9878,item.id}
+ffxi oboro check more ffxi oboro
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+
+if bpFindItem(stones[1]) then
+local id = select(3, bpFindItem(stones[1]))
+ffxi oboro informational ffxi oboro
+
+if bpFindNPC(oboro) then
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Oboro is to far away!’)
+ffxi oboro check more ffxi oboro
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find Oboro!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+ffxi oboro best of ffxi oboro
+
+end
+
+end
+
+elseif command == ‘plutons’ then
+
+if match then
+
+local oboro = {17784988}
+ffxi oboro check more ffxi oboro
+local stones = {}
+local item
+
+if match[1] ~= “max” then
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+stones = {4059,4059,4059,4059,4059,4059,4059,item.id}
+ffxi oboro check more ffxi oboro
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+ffxi oboro best of ffxi oboro
+if item then
+stones = {4059,4059,4059,4059,4059,4059,4059,4059,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+
+ffxi oboro informational ffxi oboro
+if item and item.id then
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+if bpFindItem(stones[1]) then
+local id = select(3, bpFindItem(stones[1]))
+
+if bpFindNPC(oboro) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find NPC!’)
+
+ffxi oboro best of ffxi oboro
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+
+end
+
+end
+ffxi oboro best of ffxi oboro
+
+elseif command == ‘beits’ then
+
+if match then
+
+local oboro = {17784988}
+local stones = {}
+local item
+
+if match[1] ~= “max” then
+ffxi oboro ffxi oboro
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+stones = {4060,4060,4060,4060,4060,4060,4060,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+ffxi oboro informational ffxi oboro
+end
+
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+stones = {4060,4060,4060,4060,4060,4060,4060,4060,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+ffxi oboro check more ffxi oboro
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+
+if item and item.id then
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+if bpFindItem(stones[1]) then
+ffxi oboro best of ffxi oboro
+local id = select(3, bpFindItem(stones[1]))
+
+if bpFindNPC(oboro) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+ffxi oboro ffxi oboro
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+ffxi oboro best of ffxi oboro
+
+end
+
+end
+
+end
+
+elseif command == ‘boulders’ then
+
+if match then
+ffxi oboro best of ffxi oboro
+
+local oboro = {17784988}
+local stones = {}
+local item
+
+if match[1] ~= “max” then
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+ffxi oboro ffxi oboro
+if item then
+stones = {4061,4061,4061,4061,4061,4061,4061,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+ffxi oboro informational ffxi oboro
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+stones = {4061,4061,4061,4061,4061,4061,4061,4061,item.id}
+count = select(2, bpFindItem(stones[1]))
+amount = count * (#stones-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+ffxi oboro informational ffxi oboro
+end
+
+if item and item.id then
+local target = windower.ffxi.get_mob_by_id(oboro[1])
+
+if bpFindItem(stones[1]) then
+local id = select(3, bpFindItem(stones[1]))
+
+if bpFindNPC(oboro) then
+
+ffxi oboro best of ffxi oboro
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+
+else
+ffxi oboro check more ffxi oboro
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+
+end
+ffxi oboro ffxi oboro
+
+end
+
+elseif command == ‘metal’ then
+
+if match then
+
+local gorpa = {17797273}
+local metal = {}
+local item
+ffxi oboro check more ffxi oboro
+
+if match[1] ~= “max” then
+
+name = commands
+item = bpCheckInventoryForItem(name)
+
+if item then
+metal = {9270,9270,9270,9270,9270,9270,9270,item.id}
+count = select(2, bpFindItem(metal[1]))
+amount = count * (#metal-1)
+ffxi oboro best of ffxi oboro
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+metal = {9270,9270,9270,9270,9270,9270,9270,9270,item.id}
+ffxi oboro check more ffxi oboro
+count = select(2, bpFindItem(metal[1]))
+amount = count * (#metal-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+
+if item and item.id and bpFindNPC(gorpa) then
+local target = windower.ffxi.get_mob_by_id(gorpa[1])
+ffxi oboro check more ffxi oboro
+
+if bpFindItem(metal[1]) then
+local id = select(3, bpFindItem(metal[1]))
+
+if bpFindNPC({target.id}) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+ffxi oboro best of ffxi oboro
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+
+end
+
+end
+
+elseif command == ‘fiber’ then
+ffxi oboro check more ffxi oboro
+
+if match then
+
+local gorpa = {17797273}
+local fiber = {}
+local item
+
+if match[1] ~= “max” then
+
+name = commands
+ffxi oboro best of ffxi oboro
+item = bpCheckInventoryForItem(name)
+
+if item then
+fiber = {9271,9271,9271,9271,9271,9271,9271,item.id}
+count = select(2, bpFindItem(fiber[1]))
+amount = count * (#fiber-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+ffxi oboro check more ffxi oboro
+else
+
+item = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item then
+fiber = {9271,9271,9271,9271,9271,9271,9271,9271,item.id}
+count = select(2, bpFindItem(fiber[1]))
+amount = count * (#fiber-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+ffxi oboro ffxi oboro
+end
+
+end
+
+if item and item.id and bpFindNPC(gorpa) then
+local target = windower.ffxi.get_mob_by_id(gorpa[1])
+
+if bpFindItem(fiber[1]) then
+local id = select(3, bpFindItem(fiber[1]))
+
+ffxi oboro check more ffxi oboro
+if bpFindNPC({target.id}) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+ffxi oboro ffxi oboro
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+ffxi oboro ffxi oboro
+
+end
+
+end
+
+elseif command == ‘cape’ then
+
+if match then
+
+local gorpa = {17797273}
+ffxi oboro ffxi oboro
+local materials = {}
+local cape
+
+if match[1] ~= “max” then
+
+cape = bpCheckInventoryForItem(match[1])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if cape and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,cape.id}
+ffxi oboro check more ffxi oboro
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+cape = bpCheckInventoryForItem(match[2])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+1+#match[2]+2))
+ffxi oboro best of ffxi oboro
+
+if cape and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,cape.id}
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+ffxi oboro informational ffxi oboro
+
+if cape and mats and cape.id and mats.id and bpFindNPC(gorpa) then
+local target = windower.ffxi.get_mob_by_id(gorpa[1])
+
+if bpFindItem(materials[1]) then
+local id = select(3, bpFindItem(materials[1]))
+
+if player and bpFindNPC({player.id}) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+ffxi oboro check more ffxi oboro
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+
+end
+
+ffxi oboro check more ffxi oboro
+end
+
+elseif command == ‘unity’ then
+
+if match then
+
+local unity_npc = windower.ffxi.get_mob_by_target(‘t’)
+local materials = {}
+local item
+
+ffxi oboro informational ffxi oboro
+if match[1] ~= “max” then
+
+item = bpCheckInventoryForItem(match[1])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+
+if item and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,item.id}
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-1)
+else
+ffxi oboro ffxi oboro
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+item = bpCheckInventoryForItem(match[2])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+1+#match[2]+2))
+
+if item and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,item.id}
+ffxi oboro check more ffxi oboro
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+end
+
+if item and mats and item.id and mats.id and bpFindNPC({unity_npc.id}) then
+
+ffxi oboro best of ffxi oboro
+if bpFindItem(materials[1]) then
+local id = select(3, bpFindItem(materials[1]))
+
+if player and bpFindNPC({player.id}) then
+
+if math.sqrt(unity_npc.distance) 6 then
+ffxi oboro informational ffxi oboro
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+else
+ffxi oboro check more ffxi oboro
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+
+end
+
+end
+
+elseif command == ‘weapon’ then
+
+ffxi oboro best of ffxi oboro
+if match then
+
+local gorpa = {17797273}
+local materials = {}
+local weapon
+
+if match[1] ~= “max” then
+
+weapon = bpCheckInventoryForItem(match[1])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+2))
+ffxi oboro check more ffxi oboro
+
+if weapon and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,weapon.id}
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+ffxi oboro ffxi oboro
+
+weapon = bpCheckInventoryForItem(match[2])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+1+#match[2]+2))
+
+if weapon and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,weapon.id}
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-1)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+ffxi oboro check more ffxi oboro
+end
+
+end
+
+if weapon and mats and weapon.id and mats.id and bpFindNPC(gorpa) then
+local target = windower.ffxi.get_mob_by_id(gorpa[1])
+
+if bpFindItem(materials[1]) then
+local id = select(3, bpFindItem(materials[1]))
+
+ffxi oboro best of ffxi oboro
+if player and bpFindNPC({player.id}) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+ffxi oboro ffxi oboro
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+ffxi oboro ffxi oboro
+
+end
+
+end
+
+elseif command == ‘glow’ then
+
+if match then
+
+local gorpa = {17797273}
+ffxi oboro best of ffxi oboro
+local materials = {}
+local weapon
+local glow
+
+if match[1] ~= “max” then
+
+weapon = bpCheckInventoryForItem(match[1])
+glow = bpCheckInventoryForItem(match[2])
+mats = bpCheckInventoryForItem(commands:sub(#match[1]+1+#match[2]+2))
+
+ffxi oboro ffxi oboro
+if weapon and glow and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,glow.id,weapon.id}
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-2)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+end
+
+else
+
+ffxi oboro ffxi oboro
+weapon = bpCheckInventoryForItem(match[2])
+glow = bpCheckInventoryForItem(match[3])
+mats = bpCheckInventoryForItem(commands:sub(#match[2]+1+#match[3]+2))
+
+if weapon and glow and mats then
+materials = {mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,mats.id,glow.id,weapon.id}
+count = select(2, bpFindItem(materials[1]))
+amount = count * (#materials-2)
+else
+windower.add_to_chat(5, ‘Unable to find that item!’)
+ffxi oboro check more ffxi oboro
+end
+
+end
+
+if weapon and glow and mats and weapon.id and glow.id and mats.id and bpFindNPC(gorpa) then
+local target = windower.ffxi.get_mob_by_id(gorpa[1])
+
+if bpFindItem(materials[1]) then
+local id = select(3, bpFindItem(materials[1]))
+
+ffxi oboro ffxi oboro
+if player and bpFindNPC({player.id}) then
+
+if math.sqrt(target.distance) 6 then
+windower.add_to_chat(5, ‘Target is to far away!’)
+
+end
+ffxi oboro ffxi oboro
+
+else
+windower.add_to_chat(5, ‘Unable to find Player!’)
+
+end
+
+else
+windower.add_to_chat(5, ‘Unable to find items!’)
+
+end
+ffxi oboro best of ffxi oboro
+
+end
+
+end
+
+elseif command == ‘reload’ or command == ‘r’ or command == ‘rl’ then
+windower.send_command(‘lua reload itemdyr’)
+
+end
+
+ffxi oboro ffxi oboro
+end)
+
+function bpFindItem(itemId)
+
+local items = windower.ffxi.get_items(0)
+
+for index, item in ipairs(items) do
+
+if item and item.id == itemId and item.status == 0 then
+return index, item.count, item.id
+ffxi oboro ffxi oboro
+
+end
+
+end
+
+return false
+
+end
+
+function bpFindNPC(npcs)
+ffxi oboro informational ffxi oboro
+
+for i, v in ipairs(npcs) do
+
+if windower.ffxi.get_mob_by_id(v) then
+return windower.ffxi.get_mob_by_id(v)
+
+end
+
+end
+
+ffxi oboro check more ffxi oboro
+return false
+
+end
+
+function bpCheckInventoryForItem(item_name)
+
+local items = windower.ffxi.get_items(0)
+
+for index, item in ipairs(items) do
+
+ffxi oboro check more ffxi oboro
+if item and index and item.id and item.status == 0 then
+
+local found_item = res.items[item.id]
+
+if found_item and found_item.name then
+
+local name = found_item.name
+
+if name:sub(1, #item_name):lower() == item_name:lower() then
+return found_item
+ffxi oboro best of ffxi oboro
+end
+
+end
+
+end
+
+end
+return false
+
+end
+ffxi oboro ffxi oboro
+
+function bpGetIndexesByName(item_name)
+
+local items = windower.ffxi.get_items(0)
+local found_items = {}
+
+for index, item in ipairs(items) do
+
+if item and index and item.id and item.status == 0 then
+
+ffxi oboro informational ffxi oboro
+local found_item = res.items[item.id]
+
+if found_item and found_item.name then
+
+local name = found_item.name
+
+if name:sub(1, #item_name):lower() == item_name:lower() then
+table.insert(found_items, index)
+
+end
+ffxi oboro check more ffxi oboro
+
+end
+
+end
+
+end
+return found_items
+
+end
+
+ffxi oboro informational ffxi oboro
+function bpTradeNPC(npc, items)
+
+if npc and items then
+
+local _L = {}
+
+_L.itemcount1 = 0
+_L.itemcount2 = 0
+_L.itemcount3 = 0
+_L.itemcount4 = 0
+ffxi oboro ffxi oboro
+_L.itemcount5 = 0
+_L.itemcount6 = 0
+_L.itemcount7 = 0
+_L.itemcount8 = 0
+_L.itemcount9 = 0
+_L.itemindex1 = 0
+_L.itemindex2 = 0
+_L.itemindex3 = 0
+_L.itemindex4 = 0
+_L.itemindex5 = 0
+ffxi oboro check more ffxi oboro
+_L.itemindex6 = 0
+_L.itemindex7 = 0
+_L.itemindex8 = 0
+_L.itemindex9 = 0
+_L.quantity = 0
+
+for i, v in ipairs(items) do
+
+if v ~= 0 then
+
+ffxi oboro informational ffxi oboro
+local index, count, itemid = bpFindItem(v)
+
+if index and count then
+
+_L[‘quantity’] = _L[‘quantity’] + 1
+
+local q = tostring(_L.quantity)
+
+_L[‘itemcount’ .. q] = count
+_L[‘itemindex’ .. q] = index
+ffxi oboro ffxi oboro
+
+end
+
+end
+
+end
+
+local p = packets.new(‘outgoing’, 0x036, {
+[‘Target’] = npc.id,
+[‘Item Count 1’] = _L.itemcount1,
+ffxi oboro best of ffxi oboro
+[‘Item Count 2’] = _L.itemcount2,
+[‘Item Count 3’] = _L.itemcount3,
+[‘Item Count 4’] = _L.itemcount4,
+[‘Item Count 5’] = _L.itemcount5,
+[‘Item Count 6’] = _L.itemcount6,
+[‘Item Count 7’] = _L.itemcount7,
+[‘Item Count 8’] = _L.itemcount8,
+[‘Item Count 9’] = _L.itemcount9,
+[‘Item Index 1’] = _L.itemindex1,
+[‘Item Index 2’] = _L.itemindex2,
+ffxi oboro best of ffxi oboro
+[‘Item Index 3’] = _L.itemindex3,
+[‘Item Index 4’] = _L.itemindex4,
+[‘Item Index 5’] = _L.itemindex5,
+[‘Item Index 6’] = _L.itemindex6,
+[‘Item Index 7’] = _L.itemindex7,
+[‘Item Index 8’] = _L.itemindex8,
+[‘Item Index 9’] = _L.itemindex9,
+[‘Target Index’] = npc.index,
+[‘Number of Items’] = _L.quantity,
+})
+ffxi oboro informational ffxi oboro
+
+packets.inject(p)
+
+end
+
+end
+ffxi oboro
+
+–
+–
+TOP G ANDREW TATE
+
+© 2022 Pasteboss.com - Shares Pastes &
